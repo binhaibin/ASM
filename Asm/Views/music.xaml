@@ -1,0 +1,141 @@
+﻿<Page
+    x:Class="Asm.Views.music"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Asm.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:emtity="using:Asm.Emtity"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+<Page.Resources>
+        <Style x:Key="MyMediaTransportControlsStyle" TargetType="MediaTransportControls">
+<Setter Property="HorizontalAlignment" Value="Stretch">
+    
+</Setter>
+           
+    </Style>
+</Page.Resources>
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Pivot Grid.Row="0" x:Name="rootPivot" Title="Category Title">
+            <PivotItem Header="List Song">
+                <Grid>
+                    <ListView ItemsSource="{x:Bind ListSong}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="emtity:Song">
+                                <StackPanel Orientation="Horizontal" Tag="{Binding}" Tapped="tap_tap" >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            
+                                            <ColumnDefinition Width="*"/>
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <!--<Rectangle Margin="0,10,0,10" Grid.Column="0" Width="100" Height="100">
+                                            <Rectangle.Fill>
+
+                                                <ImageBrush ImageSource="{x:Bind thumbnail}"  />
+
+                                            </Rectangle.Fill>
+
+                                        </Rectangle>-->
+
+                                        <!--<PersonPicture BadgeImageSource="{x:Bind thumbnail}" Margin="0,10,0,10"/>-->
+                                        <StackPanel Margin="0,10,0,10"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Orientation="Horizontal">
+                                            <PersonPicture
+                                                x:Name="personPicture"
+                                                Width="100"
+                                                Height="100" BadgeImageSource="{x:Bind thumbnail}"
+                                               
+                                                DisplayName="{x:Bind description}"/>
+                                            
+                                        </StackPanel>
+
+
+                                        <Grid Grid.Column="1" Margin="0,20,0,10" >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="3*"/>
+                                           
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="4*"/>
+
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="Name :" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14" />
+                                        <TextBlock Text="{ x:Bind name}" Tag="name" Grid.Row="0" Grid.Column="1"/>
+                                        <TextBlock Text="Singer:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14" />
+                                        <TextBlock Text="{ x:Bind singer}" Tag="singer" Grid.Row="1" Grid.Column="1"/>
+                                    <TextBlock Text="{x:Bind link}" Tag="link" Visibility="Collapsed"/>
+                                    </Grid>
+                                    </Grid>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Create Song" >
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBox x:Name="name" Width="450" Header="Name:" />
+                    <TextBox x:Name="singer" Header="Singer:" />
+                    <TextBox x:Name="author" Header="Author:" />
+                    <TextBox x:Name="thumbnail" Header="Thumbnail:" />
+                    <TextBox x:Name="link" Header="Link:" />
+                    
+                    <Button x:Name="create" Content="Create" Click="bth_create" Margin="0,30,0,0"  />
+                </StackPanel>
+            </PivotItem>
+        </Pivot>
+
+        <MediaElement AreTransportControlsEnabled="True"   Grid.Row="1" Height="80" x:Name="PlayerElement"  AutoPlay="True" IsLooping="False">
+            <MediaElement.TransportControls>
+                <MediaTransportControls Style="{StaticResource MyMediaTransportControlsStyle}"
+                    IsCompact="True" 
+                    IsPreviousTrackButtonVisible="True"
+                    IsNextTrackButtonVisible="True" 
+                    IsFastForwardButtonVisible="True" 
+                    IsFastForwardEnabled="True" 
+                    IsFastRewindButtonVisible="True" 
+                    IsFastRewindEnabled="True"/>
+
+            </MediaElement.TransportControls>
+           
+        </MediaElement>
+        
+        <!--<StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="Red" Grid.Row="1">
+            <Slider Width="300"/>
+            <CommandBar OverflowButtonVisibility="Collapsed" Background="#00E6E6E6">
+                
+                <AppBarButton>
+<SymbolIcon Symbol="Previous"/>
+                </AppBarButton>
+                <AppBarButton>
+                    <SymbolIcon Symbol="Play" x:Name="playbth" />
+                </AppBarButton>
+                <AppBarButton>
+                    <SymbolIcon Symbol="Next"/>
+                </AppBarButton>
+
+            </CommandBar>
+            <AppBarButton>
+                <SymbolIcon Symbol="Volume"/>
+            </AppBarButton>
+            <Slider Width="100"/>
+            <TextBlock Text="100%"/>
+        </StackPanel>-->
+    </Grid>
+    
+</Page>
+

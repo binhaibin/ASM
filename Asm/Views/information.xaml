@@ -1,0 +1,54 @@
+﻿<Page
+    x:Class="Asm.Views.information"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Asm.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+<Frame x:Name="infr">
+    <ScrollViewer>
+        <StackPanel>
+            <!--<Image Width="200" Height="200" x:Name="img_avatar" Source="/Assets/avatar.png"/>-->
+            <PersonPicture  x:Name="img_avatar"/>
+                <Grid Margin="20 20 20 20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <RelativePanel Grid.Column="0" HorizontalAlignment="Center">
+                    
+                    
+                </RelativePanel>
+                <Grid Grid.Column="1" Margin="20 20 20 20" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Full Name: "/>
+                    <TextBlock Grid.Column="1" Grid.Row="0" x:Name="txt_fullname" Text="..."/>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="Birth Of Day:"/>
+                    <TextBlock Grid.Column="1" Grid.Row="1" x:Name="txt_birthday" Text="..."/>
+                    <TextBlock Grid.Column="0" Grid.Row="2" Text="Email: "/>
+                    <TextBlock Grid.Column="1" Grid.Row="2" x:Name="txt_email" Text="..." />
+                    <TextBlock Grid.Column="0" Grid.Row="3" Text="Address: "/>
+                    <TextBlock Grid.Column="1" Grid.Row="3" x:Name="txt_address" Text="..."/>
+                    <TextBlock Grid.Column="0" Grid.Row="4" Text="Introduction: "/>
+                    <TextBlock Grid.Column="1" Grid.Row="4" x:Name="txt_intro" Text="..."/>
+                </Grid>
+            </Grid>
+           
+
+
+        </StackPanel>
+    </ScrollViewer>
+</Frame>
+</Page>

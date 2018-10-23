@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="Asm.Views.login"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Asm.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+<Frame x:Name="frLogin">
+    <StackPanel  HorizontalAlignment="Center">
+        <TextBlock Text="" x:Name="errorMessage" Foreground="Red" FontStyle="Italic"/>
+        <TextBox Header="Email" x:Name="tb_email" FocusVisualPrimaryBrush="Black" Foreground="Black" BorderBrush="#66000000" Width="450"/>
+        <TextBlock Text="" x:Name="errorEmail" Foreground="Red" FontStyle="Italic"/>
+        <PasswordBox Header="Password" x:Name="pb_pass"/>
+        <TextBlock Text="" x:Name="errorPassword" FontStyle="Italic" Foreground="Red"/>
+<StackPanel Orientation="Horizontal">
+        <TextBlock Margin="0,10,0,10">Chưa có tài khoản: </TextBlock>
+            <HyperlinkButton Content="Đăng kí" Click="bth_regi" />
+</StackPanel>
+        <Button Content="LOGIN" x:Name="login_btn" Click="bth_login1" Margin="0,30,0,0"/>
+    </StackPanel>
+</Frame>
+</Page>
